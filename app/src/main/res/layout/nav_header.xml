@@ -13,7 +13,7 @@
 
     <TextView
         android:layout_marginLeft="20sp"
-        android:id="@+id/user_name"
+        android:id="@+id/ceName"
         android:text="Tony"
         android:textColor="#FFF"
         android:textSize="14sp"
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content" />
     <TextView
         android:layout_margin="20sp"
-        android:id="@+id/user_idea"
+        android:id="@+id/ceSig"
         android:text="我有我的路,我有我世界"
         android:textColor="#FFF"
         android:textSize="14sp"

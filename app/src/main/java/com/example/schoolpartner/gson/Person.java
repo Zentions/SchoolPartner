@@ -9,7 +9,7 @@ import java.io.Serializable;
 /**
  * Created by q on 2017/4/21.
  */
-public class Person extends DataSupport {
+public class Person extends DataSupport implements Serializable{
     @SerializedName("id")
     private String number;
 

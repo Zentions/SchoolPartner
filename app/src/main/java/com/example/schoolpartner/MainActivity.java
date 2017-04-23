@@ -14,6 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.schoolpartner.db.QueryDB;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       // user = (Person)getIntent().getSerializableExtra("user");
+        user = (Person)getIntent().getSerializableExtra("user");
         Toolbar toolbar = (Toolbar)findViewById(R.id.bar);
         setSupportActionBar(toolbar);
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer);
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         }
         NavigationView navigationView = (NavigationView)findViewById(R.id.nav_view);
         navigationView.setCheckedItem(R.id.zhengZaiQiuZhu);
+        View view = navigationView.inflateHeaderView(R.layout.nav_header);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -57,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(manager);
         TaskAdapter adapter = new TaskAdapter(list);
         recyclerView.setAdapter(adapter);
-//        TextView t1 = (TextView)findViewById(R.id.user_name);
-//        t1.setText(user.getName());
-//        TextView t2 = (TextView)findViewById(R.id.user_idea);
-//        t2.setText(user.getSignature());
+        TextView t1 = (TextView)view.findViewById(R.id.ceName);
+        t1.setText(user.getName());
+        TextView t2 = (TextView)view.findViewById(R.id.ceSig);
+        t2.setText(user.getSignature());
     }
 
     @Override

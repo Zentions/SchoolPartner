@@ -173,7 +173,7 @@ public class LoginActivity extends AppCompatActivity  {
                         Person user =  QueryDB.QueryPerson(email).get(0);
                         if( user.getPassword().equals(password)) {
                             Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                           // intent.putExtra("user",user);
+                            intent.putExtra("user",user);
                             startActivity(intent);
                             finish();
                         } else {
