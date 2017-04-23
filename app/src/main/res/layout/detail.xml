@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app = "http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        app:cardCornerRadius = "4dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:paddingTop="10dp"
+                android:id="@+id/TaskTitle"
+                android:text="333333孙大发山大33333333的撒fads33333333333334214"
+                android:maxLines="2"
+                android:textColor="@android:color/black"
+                android:textSize="22dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:background="#FF909090" />
+            <LinearLayout
+                android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/state"
+                    android:layout_weight="1"
+                android:text="等待同意"
+                    android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="#FF909090" />
+                <TextView
+                    android:id="@+id/money"
+                    android:layout_weight="1"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="悬赏金额"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="#FF909090" />
+                <Button
+                    android:id="@+id/associate"
+                    android:layout_weight="1"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="联系发布人"
+                    android:background="@android:color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp" />
+        </LinearLayout>
+        </LinearLayout>
+</android.support.v7.widget.CardView>
+

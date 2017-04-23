@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="?attr/colorPrimary">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:id="@+id/nav_image"
+            android:src="@drawable/touxiang"/>
+
+    <TextView
+        android:layout_marginLeft="20sp"
+        android:id="@+id/user_name"
+        android:text="Tony"
+        android:textColor="#FFF"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_margin="20sp"
+        android:id="@+id/user_idea"
+        android:text="我有我的路,我有我世界"
+        android:textColor="#FFF"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

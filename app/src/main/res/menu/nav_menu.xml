@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<group android:checkableBehavior="single">
+    <item android:id="@+id/zhengZaiQiuZhu"
+        android:icon="@drawable/zhengzaijinxing"
+        android:title="正在求助中"></item>
+    <item android:id="@+id/finish"
+        android:icon="@drawable/finish"
+        android:title="完成求助的任务"/>
+    <item android:id="@+id/yiJieShou"
+        android:icon="@drawable/yijieshou"
+        android:title="已接受的任务"/>
+    <item android:id="@+id/finishdeTask"
+        android:icon="@drawable/task"
+        android:title="完成的任务"/>
+</group>
+</menu>
