@@ -18,7 +18,6 @@
         <activity
             android:name=".LoginActivity"
             android:label="校园合伙人">
-
         </activity>
         <activity
             android:name=".MainActivity"
@@ -27,10 +26,25 @@
         </activity>
         <activity android:name=".Welcome">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TaskContent"
+            android:label="校园合伙人">
+        </activity>
+        <activity android:name=".ReleaseTask">
+        </activity>
+        <activity
+            android:name=".Register"
+            android:label="校园合伙人">
+        </activity>
+        <activity android:name=".Information">
+        </activity>
+        <activity android:name=".HistoryTask"
+            android:label="校园合伙人">
         </activity>
     </application>
 

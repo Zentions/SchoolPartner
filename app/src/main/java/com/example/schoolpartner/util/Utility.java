@@ -51,11 +51,8 @@ public class Utility {
             if(list.size()==0)return false;
             else {
                 for(Task task:list){
-                   if( QueryDB.QueryTask(task.getId()).size()==0){
                        task.save();
-                   }else{
-                       QueryDB.UpdateTask(task.getId(), task);
-                   }
+
                }
                 return true;
             }

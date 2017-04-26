@@ -67,7 +67,6 @@ public class LoginActivity extends AppCompatActivity  {
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
-
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -85,6 +84,14 @@ public class LoginActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 attemptLogin();
+            }
+        });
+        Button mRegister = (Button)findViewById(R.id.register_button);
+        mRegister.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,Register.class);
+                startActivity(intent);
             }
         });
         mLoginFormView = findViewById(R.id.login_form);

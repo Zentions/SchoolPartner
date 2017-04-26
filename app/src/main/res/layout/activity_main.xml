@@ -39,6 +39,7 @@
         </android.support.design.widget.AppBarLayout>
         <include layout="@layout/recycler"/>
         <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floating"
             app:backgroundTint="@android:color/holo_blue_dark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

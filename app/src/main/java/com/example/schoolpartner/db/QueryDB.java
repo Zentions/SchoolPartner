@@ -24,11 +24,46 @@ public class QueryDB {
 
     }
     public static List<Task> QueryTask(Integer id){//用id查询
-        return DataSupport.where("id=?",""+id).find(Task.class);
+        return DataSupport.where("number=?",""+id).find(Task.class);
 
     }
     public static void UpdateTask(Integer id,Task task){//更新
-       task.updateAll("id=?",""+id);
+       task.updateAll("number=?",""+id);
 
+    }
+    public static List<Task> QueryTask1(String id){//
+        List<Task> list =  DataSupport.where("FId=?",id).find(Task.class);
+        ArrayList<Task> list1 = new ArrayList<Task>();
+        for(Task task:list){
+            if(!task.isFinished())list1.add(task);
+        }
+        return list1;
+
+    }
+    public static List<Task> QueryTask2(String id){//
+        List<Task> list =  DataSupport.where("FId=?",id).find(Task.class);
+        ArrayList<Task> list1 = new ArrayList<Task>();
+        for(Task task:list){
+            if(task.isFinished())list1.add(task);
+        }
+        return list1;
+
+    }
+    public static List<Task> QueryTask3(String id){//
+        List<Task> list =  DataSupport.where("helper=?",id).find(Task.class);
+        ArrayList<Task> list1 = new ArrayList<Task>();
+        for(Task task:list){
+            if(!task.isFinished())list1.add(task);
+        }
+        return list1;
+
+    }
+    public static List<Task> QueryTask4(String id){//
+        List<Task> list =  DataSupport.where("helper=?",id).find(Task.class);
+        ArrayList<Task> list1 = new ArrayList<Task>();
+        for(Task task:list){
+            if(task.isFinished())list1.add(task);
+        }
+        return list1;
     }
 }

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/beijig"
+    tools:context="com.example.schoolpartner.TaskContent">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/taskToolbar"
+        android:layout_width="match_parent"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_height="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_below="@+id/taskToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="230dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@android:color/black"
+                android:textSize="22dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:text="TASK DETAIL:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/neirong"
+                android:textColor="@android:color/black"
+                android:textSize="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:text="无"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_below="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:background="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="2dp" />
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/pay"
+                android:text="悬赏金额： （元）"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:background="@android:color/black"
+                android:layout_width="2dp"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/currentState"
+                android:text="无人响应"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <TextView
+            android:background="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="2dp" />
+        <TextView
+            android:id="@+id/xianzhishijian"
+            android:layout_marginTop="15dp"
+            android:text="限制时间：12（小时）"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:background="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="2dp" />
+        <TextView
+            android:id="@+id/addTime"
+            android:layout_marginTop="15dp"
+            android:text="添加时间："
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:background="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="2dp" />
+        <Button
+            android:gravity="center"
+            android:textSize="18dp"
+            android:id="@+id/ziliaoButton"
+            android:text="发布人：XXX（点击查看资料卡）"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:text="接取任务"
+            android:textSize="18sp" />
+        <Button
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:id="@+id/refuse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:text="拒绝服务"
+            android:textSize="18sp" />
+    </LinearLayout>
+</RelativeLayout>

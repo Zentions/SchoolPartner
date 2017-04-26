@@ -4,12 +4,14 @@ import com.google.gson.annotations.SerializedName;
 
 import org.litepal.crud.DataSupport;
 
+import java.io.Serializable;
+
 /**
  * Created by q on 2017/4/23.
  */
-public class Task extends DataSupport{
-
-    private Integer id;
+public class Task extends DataSupport implements Serializable{
+    @SerializedName("id")
+    private String number;
     private String title;
     private String classification;
     private String content;
@@ -22,10 +24,10 @@ public class Task extends DataSupport{
     private Integer FId;
     private Integer helper;
     private boolean accept;
-
-    private boolean finished =false;
+    private String phoneNumber;
+    private boolean finished;
     private boolean agree;
-    public Task(String title, String classification, String content, String time, String money, String addTime, String mattersNeedAttention, Integer FId) {
+    public Task(String title, String classification, String content, String time, String money, String addTime, String mattersNeedAttention, Integer FId,String phoneNumber) {
         this.title = title;
         this.classification = classification;
         this.content = content;
@@ -34,9 +36,18 @@ public class Task extends DataSupport{
         this.addTime = addTime;
         this.mattersNeedAttention = mattersNeedAttention;
         this.FId = FId;
+        this.phoneNumber = phoneNumber;
     }
     public Task() {
 
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public boolean isAccept() {
@@ -63,12 +74,12 @@ public class Task extends DataSupport{
         this.agree = agree;
     }
 
-    public Integer getId() {
-        return id;
+    public String getNumber() {
+        return number;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getTitle() {
@@ -154,7 +165,7 @@ public class Task extends DataSupport{
     @Override
     public String toString() {
         return "Task{" +
-                "id=" + id +
+                "id=" + number +
                 ", title='" + title + '\'' +
                 ", classification='" + classification + '\'' +
                 ", content='" + content + '\'' +
@@ -169,5 +180,11 @@ public class Task extends DataSupport{
                 ", finished=" + finished +
                 ", agree=" + agree +
                 '}';
+    }
+    public String getState(){
+        if(finished)return "已完成";
+        else if(agree) return "任务进行中";
+        else if(accept) return "等待同意";
+        else return  "无人响应";
     }
 }

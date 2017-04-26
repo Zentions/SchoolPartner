@@ -2,6 +2,7 @@ package com.example.schoolpartner;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,8 +22,10 @@ import java.util.List;
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     private List<Task> list;
     private Context  mContext;
-    public TaskAdapter(List<Task> list) {
+    private String UserId;
+    public TaskAdapter(List<Task> list,String UserId) {
         this.list = list;
+        this.UserId = UserId;
     }
 
     @Override
@@ -35,7 +38,22 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //
+                int position = holder.getAdapterPosition();
+                Task task = list.get(position);
+                Intent intent = new Intent(mContext,TaskContent.class);
+                intent.putExtra("task",task);
+                intent.putExtra("UserId",UserId);
+                mContext.startActivity(intent);
+            }
+        });
+        holder.association.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                Task task = list.get(position);
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:"+task.getPhoneNumber()));
+                mContext.startActivity(intent);
             }
         });
         return holder;
@@ -46,6 +64,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         Task task = list.get(position);
         holder.title.setText(task.getTitle());
         holder.money.setText("悬赏金额："+task.getMoney());
+        holder.state.setText(task.getState());
     }
 
     @Override

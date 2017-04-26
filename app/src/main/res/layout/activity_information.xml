@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.schoolpartner.Information">
+    <ImageView
+        android:scaleType="fitXY"
+        android:src="@drawable/infor"
+        android:layout_width="match_parent"
+        android:layout_height="240dp" />
+    <ImageButton
+        android:id="@+id/back4"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:src="@drawable/back"
+        android:layout_width="40dp"
+        android:layout_height="50dp" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="205dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/nav_image"
+        android:src="@drawable/touxiang"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="290dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/name4"
+            android:layout_gravity="center_horizontal"
+            android:text="高籍"
+            android:textColor="@android:color/black"
+            android:textSize="22dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/sig4"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:text="走自己的路，不后悔"
+            android:textColor="@android:color/black"
+            android:textSize="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/num4"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:text="1507010113"
+            android:textColor="@android:color/black"
+            android:textSize="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/mager4"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:text="15级计算机"
+            android:textColor="@android:color/black"
+            android:textSize="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/phone4"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:text="17806236254"
+            android:textColor="@android:color/black"
+            android:textSize="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</FrameLayout>
