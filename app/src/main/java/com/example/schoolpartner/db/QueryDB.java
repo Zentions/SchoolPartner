@@ -20,7 +20,7 @@ public class QueryDB {
         person.updateAll("number=?",id);
     }
     public static List<Task> QueryTask(){//查询所有未完成状态
-        return DataSupport.where("finished=?","0").find(Task.class);
+        return DataSupport.where("finished=?","0").order("addTime desc").find(Task.class);
 
     }
     public static List<Task> QueryTask(Integer id){//用id查询
@@ -32,7 +32,7 @@ public class QueryDB {
 
     }
     public static List<Task> QueryTask1(String id){//
-        List<Task> list =  DataSupport.where("FId=?",id).find(Task.class);
+        List<Task> list =  DataSupport.where("FId=?",id).order("addTime desc").find(Task.class);
         ArrayList<Task> list1 = new ArrayList<Task>();
         for(Task task:list){
             if(!task.isFinished())list1.add(task);
@@ -41,7 +41,7 @@ public class QueryDB {
 
     }
     public static List<Task> QueryTask2(String id){//
-        List<Task> list =  DataSupport.where("FId=?",id).find(Task.class);
+        List<Task> list =  DataSupport.where("FId=?",id).order("addTime desc").find(Task.class);
         ArrayList<Task> list1 = new ArrayList<Task>();
         for(Task task:list){
             if(task.isFinished())list1.add(task);
@@ -50,7 +50,7 @@ public class QueryDB {
 
     }
     public static List<Task> QueryTask3(String id){//
-        List<Task> list =  DataSupport.where("helper=?",id).find(Task.class);
+        List<Task> list =  DataSupport.where("helper=?",id).order("addTime desc").find(Task.class);
         ArrayList<Task> list1 = new ArrayList<Task>();
         for(Task task:list){
             if(!task.isFinished())list1.add(task);
@@ -59,7 +59,7 @@ public class QueryDB {
 
     }
     public static List<Task> QueryTask4(String id){//
-        List<Task> list =  DataSupport.where("helper=?",id).find(Task.class);
+        List<Task> list =  DataSupport.where("helper=?",id).order("addTime desc").find(Task.class);
         ArrayList<Task> list1 = new ArrayList<Task>();
         for(Task task:list){
             if(task.isFinished())list1.add(task);

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style parent="@android:style/Theme.Dialog" name="PauseDialog">
+        <item name="android:windowTitleStyle">@style/PauseDialogTitle</item>
+    </style>
+    <style parent="@android:style/TextAppearance.DialogWindowTitle" name="PauseDialogTitle">
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+</resources> 

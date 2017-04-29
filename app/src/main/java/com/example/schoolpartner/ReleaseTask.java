@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.schoolpartner.db.QueryDB;
 import com.example.schoolpartner.gson.Person;
+import com.example.schoolpartner.gson.Task;
 import com.example.schoolpartner.util.HttpUtil;
 import com.example.schoolpartner.util.Utility;
 
@@ -111,6 +112,9 @@ public class ReleaseTask extends AppCompatActivity implements View.OnClickListen
             String str = formatter.format(curDate);
             Intent intent = getIntent();
             String url =  "http://"+ HttpUtil.location+":8086/task/create?title="+titleStr+"&classification=wu&content="+contentStr+"&time="+timeStr+"&money="+moneyStr+"&addTime="+str+"&mattersNeedAttention="+matterStr+"&FId="+intent.getStringExtra("id")+"&phoneNumber="+intent.getStringExtra("phone");
+            Intent backData = new Intent();
+            backData.putExtra("task1",new Task(titleStr,"wu",contentStr,timeStr,moneyStr,str,matterStr,Integer.parseInt(intent.getStringExtra("id")),intent.getStringExtra("phone")));
+            setResult(RESULT_OK,backData);
             HttpUtil.sendHttpRequest(url, new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
@@ -133,14 +137,14 @@ public class ReleaseTask extends AppCompatActivity implements View.OnClickListen
                                 Toast.makeText(ReleaseTask.this, "提交失败", Toast.LENGTH_SHORT).show();
                             }
                         });
-                    }else{
+                    } else {
                         runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(ReleaseTask.this, "提交成功", Toast.LENGTH_SHORT).show();
-                                    finish();
-                                }
-                            });
+                            @Override
+                            public void run() {
+                                Toast.makeText(ReleaseTask.this, "提交成功", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        });
 
 
                     }

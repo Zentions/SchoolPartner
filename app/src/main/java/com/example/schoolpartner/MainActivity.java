@@ -1,6 +1,8 @@
 package com.example.schoolpartner;
 
 
+import android.support.v7.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -16,6 +18,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -65,11 +68,11 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("user", user.getNumber());
                 switch (item.getItemId()){
                     case R.id.zhengZaiQiuZhu:
-                        intent.putExtra("xuhao","0");
+                        intent.putExtra("xuhao", "0");
                         startActivity(intent);
                         break;
                     case R.id.finish:
-                        intent.putExtra("xuhao","1");
+                        intent.putExtra("xuhao", "1");
                         startActivity(intent);
                         break;
                     case R.id.yiJieShou:
@@ -77,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case R.id.finishdeTask:
-                        intent.putExtra("xuhao","3");
+                        intent.putExtra("xuhao", "3");
                         startActivity(intent);
                         break;
                     default:break;
@@ -112,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 refreshTask();
+
             }
         });
         floating = (FloatingActionButton)findViewById(R.id.floating);
@@ -121,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,ReleaseTask.class);
                 intent.putExtra("id",user.getNumber());
                 intent.putExtra("phone",user.getPhoneNumber());
-                startActivity(intent);
+                startActivityForResult(intent, 1);
 
             }
         });
@@ -166,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            Toast.makeText(MainActivity.this, "刷新成功", Toast.LENGTH_SHORT).show();
                             list.clear();
                             List<Task> temp = QueryDB.QueryTask();
                             for(Task task:temp){
@@ -181,4 +186,44 @@ public class MainActivity extends AppCompatActivity {
             }});
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode){
+            case 1:
+                if(resultCode==RESULT_OK){
+                    Task task = (Task)data.getSerializableExtra("task1");
+                    list.add(0,task);
+                    adapter.notifyDataSetChanged();
+                }
+                break;
+            default:;
+        }
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.setTitle("退出应用");
+            dialog.setMessage("是否退出应用");
+            dialog.setCancelable(false);
+            
+          //  .setGravity(android.view.Gravity.CENTER_HORIZONTAL);
+            dialog.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                    ;
+                }
+            });
+            dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            dialog.show();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
